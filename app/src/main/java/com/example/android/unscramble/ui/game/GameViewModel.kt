@@ -61,6 +61,16 @@ class GameViewModel : ViewModel() {
         _score += SCORE_INCREASE
     }
 
+    /*
+    * Re-initializes the game data to restart the game.
+    */
+    fun reinitializeData() {
+        _score = 0
+        _currentWordCount = 0
+        wordsList.clear()
+        getNextWord()
+    }
+
     fun isUserWordCorrect(userWord: String) : Boolean {
         if (userWord.equals(currentWord, true)) {
             increase_score()
